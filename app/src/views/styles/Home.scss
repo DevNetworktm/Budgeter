@@ -1,0 +1,173 @@
+@import "../../global";
+
+#section-home {
+  & > #add {
+    z-index: -1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    @include shadow();
+    transition: z-index 2s, background-color 1s ease;
+    overflow: hidden;
+
+    &[data-active="true"] {
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      @include transitionAll(1s);
+
+      & > .wrapper {
+        height: 280px;
+        transition: height 1s ease 1s;
+      }
+    }
+
+    @include flex(row, center, end);
+
+    & > .wrapper {
+      width: 100%;
+      height: 0;
+      padding: 10px;
+      background-color: $COLOR_SECONDARY;
+      border-radius: 50px 50px 0 0;
+      @include transitionAll(1s);
+
+      & > .head {
+        @include flex(row, space-around, center);
+
+        & > div {
+          & > button {
+            font-size: 25px;
+            @include flex(row, center, center);
+
+            width: 45px;
+            height: 45px;
+            border-radius: 25px;
+            outline: none;
+
+            border: none;
+            background-color: $COLOR_SECONDARY_DARKER;
+          }
+        }
+      }
+
+      & > form {
+        margin-top: 15px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & > div {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          & > button {
+            width: 30px;
+            height: 30px;
+          }
+
+          & > select {
+            padding: 5px 10px;
+          }
+
+          & > input[data-active='false'] {
+            width: 0;
+            border-color: transparent;
+            @include transitionAll(0.3s)
+          }
+
+          & > input[data-active="true"] {
+            width: 100%;
+            border-color: $COLOR_PRIMARY;
+            @include transitionAll(0.3s)
+          }
+
+        }
+
+        & > button {
+          margin-top: 20px;
+          margin-left: auto;
+          margin-right: 5px;
+          height: 30px;
+        }
+
+      }
+
+
+    }
+  }
+
+  width: 100%;
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+
+  background-color: $COLOR_PRIMARY;
+
+  & > .chart {
+    background-color: $COLOR_SECONDARY;
+
+    @include shadow();
+    padding: 50px 25px;
+    border-radius: 0 0 50px 50px;
+
+    position: relative;
+
+    & > .cash {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: 30px;
+    }
+  }
+
+  & > .container {
+    width: 100%;
+    height: calc(100% - 50px);
+
+    & > .wrapper {
+      margin: 25px;
+      height: calc(100% - 50px);
+      border-radius: 25px;
+      padding: 10px;
+      background-color: $COLOR_SECONDARY;
+
+      & > div.header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+
+        height: 40px;
+
+        gap: 25px;
+
+        & > button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          font-size: 22px;
+        }
+      }
+
+      & > .details {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+
+        gap: 5px;
+      }
+    }
+  }
+}

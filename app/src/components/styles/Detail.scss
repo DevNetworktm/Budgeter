@@ -1,0 +1,45 @@
+.detail {
+  height: 30px;
+  display: flex;
+  align-items: center;
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+  & > .icon {
+    font-weight: 800;
+    margin-left: 5px;
+  }
+
+  & > .amount {
+    width: 80px;
+    padding-left: 10px;
+  }
+
+  & > .name {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    width: 100px;
+    padding-left: 10px;
+    border-left: 2px solid transparent;
+    overflow-x: hidden;
+
+    & > h3 {
+      max-height: 20px;
+      display: flex;
+      width: 100px;
+      font-size: 10px;
+      overflow-x: hidden;
+      font-weight: 500;
+    }
+  }
+
+  & > .time {
+    margin-left: auto;
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&display=swap');
+
+// VARIABLES
+$COLOR_PRIMARY: #2BB3C0;
+$COLOR_SECONDARY: #FAF7F2;
+$COLOR_SECONDARY_DARKER: #e8e8e8;
+$COLOR_TERTIARY: #3f3f3f;
+
+
+// MIXINS
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin shadow() {
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
+
+@mixin transitionAll($duration) {
+  transition: $duration all ease-in-out;
+}
+
+@mixin Button($width, $height) {
+  width: $width;
+  height: $height;
+
+  @include flex(row, center, center);
+
+  cursor: pointer;
+  background-color: $COLOR_PRIMARY;
+  color: $COLOR_SECONDARY;
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: transparent;
+    color: $COLOR_PRIMARY;
+    border-color: $COLOR_PRIMARY;
+
+    @include transitionAll(0.3s);
+  }
+
+  @include transitionAll(0.3s);
+}
+
+@mixin RButton($width, $height) {
+  width: $width;
+  height: $height;
+
+  @include flex(row, center, center);
+
+  cursor: pointer;
+  background-color: $COLOR_SECONDARY;
+  color: $COLOR_PRIMARY;
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: $COLOR_SECONDARY_DARKER;
+
+    @include transitionAll(0.3s);
+  }
+
+  @include transitionAll(0.3s);
+}
+
+// GLOBAL STYLES
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  background-color: $COLOR_SECONDARY;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: $COLOR_TERTIARY;
+}
+
+.ac {
+  color: $COLOR_PRIMARY;
+}
+
+.acR {
+  color: $COLOR_SECONDARY;
+}
+
+.title-of-element {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+
+.acButton {
+  @include Button(100%, 100%);
+}
+
+.acButton--small {
+  @include Button(100px, 50px);
+}
+
+.acButton--medium {
+  @include Button(150px, 50px);
+}
+
+.acButton--large {
+  @include Button(200px, 50px);
+}
+
+.acButton--xlarge {
+  @include Button(250px, 50px);
+}
+
+.acRButton {
+  @include RButton(100%, 100%);
+}
+
+.acRButton--small {
+  @include RButton(100px, 40px);
+}
+
+.acRButton--medium {
+  @include RButton(150px, 40px);
+}
+
+.acRButton--large {
+  @include RButton(200px, 40px);
+}
+
+.acRButton--xlarge {
+  @include RButton(250px, 40px);
+}
+
+.round--small {
+  border-radius: 5px;
+}
+
+.round--medium {
+  border-radius: 10px;
+}
+
+.round--large {
+  border-radius: 15px;
+}
+
+.round--xlarge {
+  border-radius: 20px;
+}
+
+.round--full {
+  border-radius: 25px;
+}
+
+// input
+input.basic-input, select.basic-input {
+  background-color: $COLOR_SECONDARY;
+  border: none;
+  border-radius: 25px;
+  padding: 2px 15px;
+  outline: none;
+  color: $COLOR_TERTIARY;
+}
+
+input.basic-input-R, select.basic-input-R {
+  background-color: $COLOR_SECONDARY;
+  border: 2px solid $COLOR_PRIMARY;
+  border-radius: 25px;
+  padding: 2px 15px;
+  outline: none;
+  color: $COLOR_TERTIARY;
+}
+
+input.size--minify, select.size--minify {
+  width: 50px;
+  height: 30px;
+}
+
+input.size--small, select.size--small {
+  width: 100px;
+  height: 30px;
+}
+
+input.size--medium, select.size--medium {
+  width: 150px;
+  height: 30px;
+}
+
+input.size--large, select.size--large {
+  width: 200px;
+  height: 30px;
+}
+
+input.size--xlarge, select.size--xlarge {
+  width: 250px;
+  height: 30px;
+}
